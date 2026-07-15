@@ -1,0 +1,83 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section class="result-section py-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5" data-aos="fade-down">
+                <h1 class="fw-bold">Analysis Result</h1>
+                <p class="text-muted">Detailed breakdown of our AI prediction.</p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Main Prediction Card -->
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="glass-card p-5 rounded-4 h-100 text-center d-flex flex-column justify-content-center align-items-center">
+                    <div id="prediction-badge" class="badge rounded-pill mb-3 px-4 py-2 fs-4 shadow-sm">
+                        <!-- Filled by JS -->
+                    </div>
+                    <div class="confidence-circle my-4 position-relative">
+                        <canvas id="confidenceChart" width="200" height="200"></canvas>
+                        <div class="position-absolute top-50 start-50 translate-middle text-center">
+                            <h2 id="confidence-text" class="fw-bold mb-0">0%</h2>
+                            <small class="text-muted">Confidence</small>
+                        </div>
+                    </div>
+                    
+                    <div class="risk-level w-100 mt-3">
+                        <h5 class="fw-bold">Risk Level</h5>
+                        <div class="progress" style="height: 10px;">
+                            <div id="risk-bar" class="progress-bar" role="progressbar" style="width: 0%"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-1 small text-muted">
+                            <span>Low</span>
+                            <span>Medium</span>
+                            <span>High</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Explanation & Actions -->
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="glass-card p-5 rounded-4 h-100">
+                    <h3 class="fw-bold mb-4"><i class="fa-solid fa-robot text-primary me-2"></i>AI Explanation</h3>
+                    <div class="explanation-box p-3 rounded bg-opacity-10 mb-4" id="explanation-box">
+                        <!-- Filled by JS -->
+                    </div>
+
+                    <h4 class="fw-bold mb-3 mt-4">Probability Breakdown</h4>
+                    <canvas id="barChart" height="150"></canvas>
+
+                    <div class="mt-5 text-center">
+                        <button id="download-report-btn" class="btn btn-primary rounded-pill px-4 me-2">
+                            <i class="fa-solid fa-download me-2"></i>Download Report
+                        </button>
+                        <a href="/" class="btn btn-outline-secondary rounded-pill px-4">
+                            <i class="fa-solid fa-arrow-rotate-left me-2"></i>Analyze Another
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Highlighted Text Section -->
+        <div class="row mt-5" data-aos="fade-up">
+            <div class="col-12">
+                <div class="glass-card p-5 rounded-4">
+                    <h3 class="fw-bold mb-4"><i class="fa-solid fa-magnifying-glass text-warning me-2"></i>Suspicious Words Highlighted</h3>
+                    <div class="p-4 bg-transparent border rounded text-content" id="highlighted-text" style="max-height: 400px; overflow-y: auto;">
+                        <!-- Filled by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Data elements to pass from localStorage -->
+<script>
+    // Handled in script.js to read from localStorage and populate this page.
+</script>
+{% endblock %}

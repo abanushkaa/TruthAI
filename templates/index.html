@@ -1,0 +1,89 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section d-flex align-items-center relative-container">
+    <div class="particles-bg" id="particles-js"></div>
+    <div class="container text-center text-white" style="z-index: 2;">
+        <h1 class="display-4 fw-bold mb-4 typing-effect" data-aos="fade-up">AI Fake News Detection System</h1>
+        <p class="lead mb-5" data-aos="fade-up" data-aos-delay="100">
+            Detect fake news using advanced Machine Learning and Natural Language Processing.
+        </p>
+        <div data-aos="fade-up" data-aos-delay="200">
+            <a href="#analyze-section" class="btn btn-primary btn-lg me-3 px-4 py-2 rounded-pill shadow-sm">Check News</a>
+            <a href="/about" class="btn btn-outline-light btn-lg px-4 py-2 rounded-pill">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics Section -->
+<section class="stats-section py-5">
+    <div class="container">
+        <div class="row g-4 text-center">
+            <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                <div class="glass-card p-4 rounded-4 h-100">
+                    <i class="fa-solid fa-bullseye fa-3x text-primary mb-3"></i>
+                    <h3 class="fw-bold">95%</h3>
+                    <p class="text-muted mb-0">Accuracy</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+                <div class="glass-card p-4 rounded-4 h-100">
+                    <i class="fa-solid fa-file-lines fa-3x text-success mb-3"></i>
+                    <h3 class="fw-bold">50K+</h3>
+                    <p class="text-muted mb-0">News Articles</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="300">
+                <div class="glass-card p-4 rounded-4 h-100">
+                    <i class="fa-solid fa-robot fa-3x text-info mb-3"></i>
+                    <h3 class="fw-bold">AI Powered</h3>
+                    <p class="text-muted mb-0">NLP Pipeline</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="400">
+                <div class="glass-card p-4 rounded-4 h-100">
+                    <i class="fa-solid fa-bolt fa-3x text-warning mb-3"></i>
+                    <h3 class="fw-bold">Real-time</h3>
+                    <p class="text-muted mb-0">Detection</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Analyze Section -->
+<section id="analyze-section" class="analyze-section py-5 bg-gradient-custom">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="glass-card p-5 rounded-4 shadow-lg" data-aos="fade-up">
+                    <h2 class="text-center fw-bold mb-4">Paste News Article Here</h2>
+                    <form id="analyze-form">
+                        <div class="mb-3 position-relative">
+                            <textarea id="news-text" class="form-control custom-textarea bg-transparent text-foreground" rows="8" placeholder="Paste complete news article here..."></textarea>
+                            <div class="text-stats d-flex justify-content-between mt-2 text-muted small">
+                                <span>Characters: <span id="char-count">0</span></span>
+                                <span>Words: <span id="word-count">0</span></span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between flex-wrap gap-2">
+                            <button type="button" id="clear-btn" class="btn btn-outline-danger px-4 rounded-pill">Clear</button>
+                            <button type="button" id="sample-btn" class="btn btn-outline-secondary px-4 rounded-pill">Sample News</button>
+                            <button type="submit" id="analyze-btn" class="btn btn-primary px-5 rounded-pill shadow-sm">
+                                <span class="btn-text">Analyze</span>
+                                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- Progress Bar -->
+                    <div id="loading-progress" class="progress mt-4 d-none" style="height: 10px;">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section class="history-section py-5 mt-5">
+    <div class="container">
+        <div class="row mb-4" data-aos="fade-down">
+            <div class="col-12">
+                <h2 class="fw-bold"><i class="fa-solid fa-clock-rotate-left text-primary me-2"></i>Recent Predictions</h2>
+                <p class="text-muted">A log of all analyzed news articles and their results.</p>
+            </div>
+        </div>
+
+        <div class="row" data-aos="fade-up">
+            <div class="col-12">
+                <div class="glass-card p-4 rounded-4 overflow-hidden">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0 custom-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Date</th>
+                                    <th scope="col" style="width: 40%;">News Snippet</th>
+                                    <th scope="col">Prediction</th>
+                                    <th scope="col">Confidence</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for record in records %}
+                                <tr>
+                                    <td>{{ record['date'] }}</td>
+                                    <td>
+                                        <div class="text-truncate" style="max-width: 300px;" title="{{ record['text'] }}">
+                                            {{ record['text'] }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        {% if record['prediction'] == 'Fake News' %}
+                                            <span class="badge bg-danger rounded-pill px-3 py-2"><i class="fa-solid fa-triangle-exclamation me-1"></i>Fake News</span>
+                                        {% else %}
+                                            <span class="badge bg-success rounded-pill px-3 py-2"><i class="fa-solid fa-check-circle me-1"></i>Real News</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="progress flex-grow-1 me-2" style="height: 8px;">
+                                                <div class="progress-bar {% if record['prediction'] == 'Fake News' %}bg-danger{% else %}bg-success{% endif %}" role="progressbar" style="width: {{ record['confidence'] }}%"></div>
+                                            </div>
+                                            <span class="small fw-bold">{{ record['confidence'] }}%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% else %}
+                                <tr>
+                                    <td colspan="4" class="text-center py-4 text-muted">No history found. Start analyzing news!</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,193 @@
+/* Custom Properties (Light Mode Default) */
+:root {
+    --bg-color: #f8fafc;
+    --text-color: #1e293b;
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --card-border: rgba(255, 255, 255, 0.4);
+    --primary-color: #3b82f6;
+    --secondary-color: #64748b;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --info-color: #0ea5e9;
+    --nav-bg: rgba(255, 255, 255, 0.8);
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --bg-color: #0f172a;
+    --text-color: #f1f5f9;
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --nav-bg: rgba(15, 23, 42, 0.8);
+}
+
+/* Global Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+}
+
+/* Typography & Content Colors */
+.text-content {
+    color: var(--text-color) !important;
+}
+
+/* Navigation */
+.glass-nav {
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--card-border);
+    transition: background-color 0.3s ease;
+}
+
+.glass-nav .nav-link {
+    color: var(--text-color) !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.glass-nav .nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+.glass-nav .navbar-brand {
+    color: var(--text-color) !important;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+    background-color: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    position: relative;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6, #93c5fd);
+    overflow: hidden;
+}
+
+.dark-mode .hero-section {
+    background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
+}
+
+.particles-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Typing Effect */
+.typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid white;
+    width: 0;
+    animation: typing 3s steps(30, end) forwards, blink 0.75s step-end infinite;
+    margin: 0 auto;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: white }
+}
+
+/* Inputs & Textareas */
+.custom-textarea {
+    resize: vertical;
+    min-height: 150px;
+    border: 1px solid var(--card-border);
+}
+
+.custom-textarea:focus, .form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.25);
+    border-color: var(--primary-color);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #2563eb;
+    border-color: #2563eb;
+}
+
+/* Result Page Elements */
+.confidence-circle canvas {
+    display: block;
+    margin: 0 auto;
+}
+
+.highlight-word {
+    background-color: rgba(245, 158, 11, 0.4);
+    padding: 0 4px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+.dark-mode .highlight-word {
+    background-color: rgba(245, 158, 11, 0.3);
+    color: #fcd34d;
+}
+
+/* Tables */
+.custom-table {
+    color: var(--text-color);
+}
+.custom-table tbody tr {
+    transition: background-color 0.2s;
+}
+.custom-table tbody tr:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+.dark-mode .custom-table tbody tr:hover {
+    background-color: rgba(255,255,255,0.05);
+}
+
+/* Custom Gradients */
+.bg-gradient-custom {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+}
+.dark-mode .bg-gradient-custom {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(16, 185, 129, 0.05));
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}

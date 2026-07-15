@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section class="admin-section py-5 mt-5">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12 d-flex justify-content-between align-items-center" data-aos="fade-down">
+                <h2 class="fw-bold"><i class="fa-solid fa-chart-pie text-primary me-2"></i>Admin Dashboard</h2>
+                <button class="btn btn-outline-danger btn-sm rounded-pill"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</button>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-5">
+            <!-- Stats Cards -->
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="glass-card p-4 rounded-4 shadow-sm text-center h-100">
+                    <h5 class="text-muted fw-bold mb-3">Total Predictions</h5>
+                    <h2 class="display-5 fw-bold text-primary">{{ total }}</h2>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="glass-card p-4 rounded-4 shadow-sm text-center h-100">
+                    <h5 class="text-muted fw-bold mb-3">Real News Detected</h5>
+                    <h2 class="display-5 fw-bold text-success">{{ real }}</h2>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="glass-card p-4 rounded-4 shadow-sm text-center h-100">
+                    <h5 class="text-muted fw-bold mb-3">Fake News Detected</h5>
+                    <h2 class="display-5 fw-bold text-danger">{{ fake }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4" data-aos="fade-up">
+            <div class="col-lg-8">
+                <div class="glass-card p-4 rounded-4 shadow-sm">
+                    <h5 class="fw-bold mb-4">Prediction Trends</h5>
+                    <div style="height: 300px; width: 100%;">
+                        <canvas id="adminLineChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="glass-card p-4 rounded-4 shadow-sm">
+                    <h5 class="fw-bold mb-4">Real vs Fake Ratio</h5>
+                    <div style="height: 300px; width: 100%;" class="d-flex justify-content-center">
+                        <canvas id="adminPieChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Passing data to JavaScript securely via data attributes or inline scripts
+    window.adminData = {
+        real: {{ real }},
+        fake: {{ fake }}
+    };
+</script>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section class="about-section py-5 mt-5">
+    <div class="container">
+        <!-- Header -->
+        <div class="row mb-5 text-center" data-aos="fade-down">
+            <div class="col-12">
+                <h1 class="fw-bold display-5">How It Works</h1>
+                <p class="lead text-muted">Understanding our Machine Learning & NLP Pipeline</p>
+            </div>
+        </div>
+
+        <!-- Pipeline Overview -->
+        <div class="row align-items-center mb-5 pb-5">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="glass-card p-5 rounded-4 h-100">
+                    <h3 class="fw-bold mb-4 text-primary"><i class="fa-solid fa-gears me-2"></i>1. Text Preprocessing</h3>
+                    <p>Before the machine learning model can understand the news, we must clean the raw text.</p>
+                    <ul class="list-group list-group-flush custom-list">
+                        <li class="list-group-item bg-transparent text-content border-0"><i class="fa-solid fa-check text-success me-2"></i><strong>Lowercasing:</strong> Uniform text case.</li>
+                        <li class="list-group-item bg-transparent text-content border-0"><i class="fa-solid fa-check text-success me-2"></i><strong>Removing Punctuation & URLs:</strong> Stripping noise.</li>
+                        <li class="list-group-item bg-transparent text-content border-0"><i class="fa-solid fa-check text-success me-2"></i><strong>Stopwords Removal:</strong> Removing common words (the, is, in).</li>
+                        <li class="list-group-item bg-transparent text-content border-0"><i class="fa-solid fa-check text-success me-2"></i><strong>Stemming:</strong> Reducing words to their root form (e.g., "running" to "run").</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="glass-card p-5 rounded-4 h-100 text-center d-flex align-items-center justify-content-center bg-gradient-custom">
+                    <h4 class="text-white fw-bold">Raw Text ➔ Clean Text</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- TF-IDF -->
+        <div class="row align-items-center mb-5 pb-5 flex-row-reverse">
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="glass-card p-5 rounded-4 h-100">
+                    <h3 class="fw-bold mb-4 text-info"><i class="fa-solid fa-layer-group me-2"></i>2. Feature Extraction (TF-IDF)</h3>
+                    <p>Computers don't understand words; they understand numbers. We use <strong>Term Frequency-Inverse Document Frequency</strong> to convert text into mathematical vectors.</p>
+                    <p class="text-muted small">TF-IDF measures how important a word is to a document in a collection or corpus. Words that appear frequently in one document but rarely in others are given higher weight.</p>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="glass-card p-5 rounded-4 h-100 text-center d-flex align-items-center justify-content-center bg-gradient-custom">
+                    <h4 class="text-white fw-bold">Words ➔ Vectors [0.1, 0.5, 0.0, ...]</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logistic Regression -->
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="glass-card p-5 rounded-4 h-100">
+                    <h3 class="fw-bold mb-4 text-warning"><i class="fa-solid fa-brain me-2"></i>3. Logistic Regression</h3>
+                    <p>The core intelligence of TruthAI. Logistic Regression is a statistical model that estimates the probability of an event occurring.</p>
+                    <p>In our case, it calculates the probability that a given vector of text belongs to the "Fake News" category vs the "Real News" category based on patterns learned from 50,000+ training articles.</p>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="glass-card p-5 rounded-4 h-100 text-center d-flex align-items-center justify-content-center bg-gradient-custom">
+                    <h4 class="text-white fw-bold">Vectors ➔ Probability %</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

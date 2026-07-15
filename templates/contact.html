@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section class="contact-section py-5 mt-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8" data-aos="zoom-in">
+                <div class="glass-card p-5 rounded-4 shadow-lg">
+                    <h2 class="text-center fw-bold mb-4">Contact Us</h2>
+                    <p class="text-center text-muted mb-5">Have questions or want to integrate TruthAI into your platform? Send us a message.</p>
+                    
+                    <form id="contact-form" class="needs-validation" novalidate>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label fw-bold">Full Name</label>
+                                <input type="text" class="form-control bg-transparent text-content p-3" id="name" placeholder="John Doe" required>
+                                <div class="invalid-feedback">
+                                    Please enter your name.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label fw-bold">Email Address</label>
+                                <input type="email" class="form-control bg-transparent text-content p-3" id="email" placeholder="john@example.com" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid email address.
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label fw-bold">Message</label>
+                                <textarea class="form-control bg-transparent text-content p-3 custom-textarea" id="message" rows="5" placeholder="How can we help you?" required></textarea>
+                                <div class="invalid-feedback">
+                                    Please enter your message.
+                                </div>
+                            </div>
+                            <div class="col-12 text-center mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5 w-100 shadow-sm">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
